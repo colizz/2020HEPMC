@@ -1,0 +1,28 @@
+set pointsize 1.0
+set tics in
+set mxtics 
+set mytics 
+set notitle 
+
+set log y
+set mytics 10
+set xrange[30:600]
+set yrange[0.0001:1]
+set terminal  epslatex color
+set output "data.tex"
+
+set title ''
+
+set label '$M_h=120$\,GeV at 14TeV LHC' at 100,0.24
+
+set ylabel '$d\sigma/dP_{{T}_{j1}}^{max}$ [pb/GeV]'
+set xlabel '$P_{{T}_{j1}}^{max}$ [GeV]'
+
+plot "1"   index 0 u ($1):($2) title '{\tiny Matching\quad\quad\quad}'    w steps  lt 1  ,\
+     "2"   index 0 u ($1):($2) title '{\tiny H1j EFF\quad\quad\quad}'     w steps  lt 2 ,\
+     "3"   index 0 u ($1):($2/1000) title '{\tiny H1j LO\quad\quad\quad}'     w steps  lt 3 
+
+set output
+!latex tot.tex
+!dvips -E tot.dvi -o p1.eps
+!epstopdf p1.eps

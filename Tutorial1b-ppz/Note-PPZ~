@@ -1,0 +1,28 @@
+MG242 ->  pythia-pgs  
+          NLO doesn't work with pythia
+   
+MG260 ->  pythia8
+
+-----------------
+
+ppz LO      42107pb
+ppz LO pythia6
+          Cross section (pb):    42104.249842007543     
+ppz MLM 012j
+     Cross-section :   8.881e+04 +- 143.3 pb
+     Nb of events :  10000
+     Matched Cross-section :   4.465e+04 +- 448.4 pb
+     Nb of events after Matching :  5045
+
+  0123j 
+     Cross-section :   1.028e+05 +- 181.6 pb
+     Nb of events :  10000
+     Matched Cross-section :   4.338e+04 +- 513.2 pb
+     Nb of events after Matching :  4222
+
+
+ppz NLO
+      Total cross section:      5.151e+04 +- 1.4e+02 pb
+      Total abs(cross section): 5.679e+04 +- 1.2e+02 pb 
+
+

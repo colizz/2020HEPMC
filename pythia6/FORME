@@ -1,0 +1,3 @@
+gfortran -w -o lq test.f pythia6403.f
+# g77 -w -o lq test.f pythia6403.f `cernlib`
+
