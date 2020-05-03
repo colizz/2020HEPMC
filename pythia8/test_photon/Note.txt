@@ -1,0 +1,24 @@
+(1) p p > z a , z > mu+ mu-
+     Cross-section :   3.538 +- 0.0303 pb
+     Nb of events :  2000
+
+
+(2) pp > z 0/1/2, z > mu+ mu-
+     after matching 
+     1476pb
+
+(3) same as (2). but require photon not from muon!
+ if((asta>0 && asta<7) || (asta>10 && asta<17 && asta!=13) || asta==24 ) {
+
+     Cross-section :   3419 +- 2.801 pb
+     Nb of events :  100000
+     Matched cross-section :   1476 +- 5.49 pb
+     Nb of events after matching/merging :  43169
+     Nb of events after merging :  43169
+
+
+To enlarge statistics for (3), generate mlm for 100K events (pre-matching)
+
+!!! photon FSR from mu contribute a lot
+
+

@@ -62,6 +62,15 @@ $(PREFIX_LIB)/libpythia8.a :
 main% : main%.cc $(PREFIX_LIB)/libpythia8.a
 	$(CXX) $< -o $@ $(CXX_COMMON) $(GZIP_INC) $(GZIP_FLAGS)
 
+main02: main02.cc $(PREFIX_LIB)/libpythia8.a
+ifeq ($(ROOT_USE),true)
+	$(CXX) $< -o $@ -w -I$(ROOT_INCLUDE) $(CXX_COMMON)\
+	 `$(ROOT_BIN)root-config --cflags`\
+	 -Wl,-rpath,$(ROOT_LIB) `$(ROOT_BIN)root-config --glibs`
+else
+	@echo "Error: $@ requires ROOT"
+endif
+
 # MixMax.
 main23: $$@.cc $(PREFIX_LIB)/libpythia8.a
 	$(CXX) $< -o $@ -std=c++11 -w $(CXX_COMMON) $(GZIP_INC) $(GZIP_FLAGS)
@@ -74,21 +83,8 @@ else
 	@echo "Error: $@ requires GZIP"
 endif
 
-# HEPMC2 and ROOT.
-jing mine testmine mine01 mine02: $$@.cc\
-	$(PREFIX_LIB)/libpythia8.a
-ifeq ($(HEPMC2_USE)$(ROOT_USE),truetrue)
-	$(CXX) $< -o $@ -w -I$(HEPMC2_INCLUDE) -I$(ROOT_INCLUDE) $(CXX_COMMON)\
-	 -L$(HEPMC2_LIB) -Wl,-rpath,$(HEPMC2_LIB) -lHepMC\
-	 `$(ROOTBIN)root-config --cflags`\
-	 -Wl,-rpath,$(ROOT_LIB) `$(ROOT_BIN)root-config --glibs`
-	 $(GZIP_INC) $(GZIP_FLAGS)	 
-else
-	@echo "Error: $@ requires HEPMC2 or ROOT"
-endif
-
 # HEPMC2.
-main41 main42 main43 main85 main86 main87 main88 main89: $$@.cc\
+LQ main41 main42 main43 main85 main86 main87 main88 main89: $$@.cc\
 	$(PREFIX_LIB)/libpythia8.a
 ifeq ($(HEPMC2_USE),true)
 	$(CXX) $< -o $@ -I$(HEPMC2_INCLUDE) $(CXX_COMMON)\
